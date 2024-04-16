@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './globalStyle/GlobalStyle';
+import Header from './components/common/header/Header';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -11,6 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <GlobalStyles />
+    <Header />
     <App />
   </React.StrictMode>,
 );

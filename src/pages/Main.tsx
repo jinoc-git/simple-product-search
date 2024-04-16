@@ -1,7 +1,8 @@
 import React from 'react';
+import RootLayout from '../components/common/layouts/rootLayout/RootLayout';
 
 const Main = () => {
-  return <div>Main</div>;
+  return <RootLayout>Main</RootLayout>;
 };
 
 export default Main;

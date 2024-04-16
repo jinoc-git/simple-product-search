@@ -1,10 +1,11 @@
 import React from 'react';
+import * as Styled from './style';
 
 const Header = () => {
   return (
-    <div>
-      <div>Header</div>
-    </div>
+    <Styled.Header>
+      <h1>Simple-Product</h1>
+    </Styled.Header>
   );
 };
 
