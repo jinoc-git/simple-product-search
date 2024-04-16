@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import RootLayout from '../components/common/layouts/rootLayout/RootLayout';
-import { getAllProduct } from '../api/product';
+import SearchBar from '../components/main/searchBar/SearchBar';
+import ProductList from '../components/main/productList/ProductList';
 
 const Main = () => {
-  useEffect(() => {
-    getAllProduct();
-  }, []);
-  return <RootLayout>Main</RootLayout>;
+  return (
+    <RootLayout>
+      <SearchBar />
+      <ProductList />
+    </RootLayout>
+  );
 };
 
 export default Main;
