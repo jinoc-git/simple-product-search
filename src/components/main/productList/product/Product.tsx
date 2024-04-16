@@ -1,10 +1,21 @@
 import React from 'react';
+import * as Styled from './style';
 
-const Product = () => {
+interface Props {
+  id: number;
+  brand: string;
+  thumbnail: string;
+  title: string;
+  price: number;
+}
+
+const Product = (props: Props) => {
+  const { id, brand, thumbnail, title, price } = props;
+
   return (
-    <div>
+    <Styled.ProductContainer>
       <div>Product</div>
-    </div>
+    </Styled.ProductContainer>
   );
 };
 
