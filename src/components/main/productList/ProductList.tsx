@@ -3,11 +3,18 @@ import { getInitProductList } from '../../../api/product';
 import { productStore } from '../../../store/productStore';
 import { ProductListLayout } from '../../common/layouts/producListtLayout/style';
 import Product from './product/Product';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {}
 
 const ProductList = (props: Props) => {
   const { productList, initProduct } = productStore();
+
+  const navigate = useNavigate();
+
+  const onClickProduct = (id: number) => {
+    navigate(`/productDetail/${id}`);
+  };
 
   console.log(productList);
 
@@ -28,6 +35,7 @@ const ProductList = (props: Props) => {
         return (
           <Product
             key={id}
+            onClick={onClickProduct}
             id={id}
             brand={brand}
             thumbnail={thumbnail}

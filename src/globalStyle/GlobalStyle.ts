@@ -44,7 +44,9 @@ const GlobalStyles = createGlobalStyle`
     font-size: 18px;
     font-weight: bold;
   }
-
+  p {
+    font-size: 16px;
+  }
 `;
 
 export default GlobalStyles;
