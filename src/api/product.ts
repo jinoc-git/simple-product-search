@@ -24,7 +24,9 @@ export const getMoreProductList = async (skip: number) => {
 };
 
 export const getProductListByKeyWord = async (keyWord: string) => {
-  const res = await fetch(`https://dummyjson.com/products/search?q=${keyWord}`);
+  const res = await fetch(
+    `https://dummyjson.com/products/search?q=${keyWord}&limit=10`,
+  );
   const productList: ProductListResType = await res.json();
 
   return productList;
