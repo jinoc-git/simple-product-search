@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-interface TextBtnProps {
+export interface TextBtnStyleProps {
   size?: 'sm' | 'md' | 'lg';
   color?: string;
   bg?: string;
@@ -8,7 +8,7 @@ interface TextBtnProps {
   hoverColor?: string;
 }
 
-export const TextBtn = styled.button<TextBtnProps>`
+export const TextBtn = styled.button<TextBtnStyleProps>`
   cursor: pointer;
   text-align: center;
   vertical-align: middle;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface InputProps {
+export interface InputStyleProps {
   $w: string;
   $h: string;
 }
@@ -9,7 +9,7 @@ export const IconInputContainer = styled.div`
   position: relative;
 `;
 
-export const Input = styled.input<InputProps>`
+export const Input = styled.input<InputStyleProps>`
   width: ${({ $w }) => $w};
   height: ${({ $h }) => $h};
   padding-right: 30px;

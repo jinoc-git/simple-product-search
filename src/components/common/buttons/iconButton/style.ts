@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
-interface IconBtnProps {
+export interface IconBtnStyleProps {
   $iconPosition?: 'left' | 'right';
 }
 
-export const IconBtn = styled.button<IconBtnProps>`
+export const IconBtn = styled.button<IconBtnStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;

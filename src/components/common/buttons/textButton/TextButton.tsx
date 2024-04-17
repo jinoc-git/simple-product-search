@@ -1,11 +1,11 @@
 import React from 'react';
 import * as Styled from './style';
 
-interface Props {
+export interface TextButtonProps extends Styled.TextBtnStyleProps {
   children: string;
 }
 
-const TextButton = (props: Props) => {
+const TextButton = (props: TextButtonProps) => {
   const { children } = props;
 
   return <Styled.TextBtn>{children}</Styled.TextBtn>;

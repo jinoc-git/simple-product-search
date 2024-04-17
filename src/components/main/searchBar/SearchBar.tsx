@@ -27,9 +27,10 @@ const SearchBar = () => {
       <Styled.SearchBarForm name="search-form" onSubmit={onSubmit}>
         <IconInput
           icon={<IconSearch />}
-          iconPosition="right"
-          w="460px"
-          h="40px"
+          $iconPosition="right"
+          iconBtnType={'submit'}
+          $w="460px"
+          $h="40px"
           name="search-input"
           onChange={onChangeInput}
         />
