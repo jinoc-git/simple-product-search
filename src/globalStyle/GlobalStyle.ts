@@ -2,13 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
   @font-face {
     font-family: 'TheJamsil5Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
   ${reset};
   *{
     box-sizing: border-box;
@@ -46,6 +46,10 @@ const GlobalStyles = createGlobalStyle`
   }
   p {
     font-size: 16px;
+  }
+  input {
+    outline: none;
+    border: none;
   }
 `;
 
