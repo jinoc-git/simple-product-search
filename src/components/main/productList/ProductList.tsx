@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { getInitProductList } from '../../../api/product';
-import { useProductActions, useProductList } from '../../../store/productStore';
+import { fetchInitProductList } from '../../../api/product';
+import { useProductStoreActions, useProductStoreState } from '../../../store/productStore';
 import { ProductListLayout } from '../../common/layouts/producListtLayout/style';
 import Product from './product/Product';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 interface Props {}
 
 const ProductList = (props: Props) => {
-  const productList = useProductList();
-  const { initProduct } = useProductActions();
+  const { products } = useProductStoreState();
+  const { initProducts } = useProductStoreActions();
 
   const navigate = useNavigate();
 
@@ -17,13 +17,13 @@ const ProductList = (props: Props) => {
     navigate(`/productDetail/${id}`);
   };
 
-  console.log(productList);
+  console.log(products);
 
   useEffect(() => {
     const initProductList = async () => {
-      const res = await getInitProductList();
+      const res = await fetchInitProductList();
 
-      initProduct(res.products);
+      initProducts(res);
     };
 
     initProductList();
@@ -32,7 +32,7 @@ const ProductList = (props: Props) => {
   return (
     <ProductListLayout>
       <h2>상품 리스트</h2>
-      {productList.map(({ id, brand, thumbnail, title, price }) => {
+      {products.map(({ id, brand, thumbnail, title, price }) => {
         return (
           <Product
             key={id}

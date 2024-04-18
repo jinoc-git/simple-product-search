@@ -12,9 +12,9 @@ export interface ProductType {
   title: string;
 }
 
-export interface ProductListResType {
+export interface FetchProductsReturn {
   limit: number;
-  products: ProductType[];
-  sikp: number;
+  products: ProductType[] | [];
+  skip: number;
   total: number;
 }

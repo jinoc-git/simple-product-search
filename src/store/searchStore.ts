@@ -18,8 +18,8 @@ export const searchStore = create<SearchStore>((set, get) => ({
   },
   actions: {
     setKeyWord: (keyWord: string) => {
-      const isSearched = get().state.isSearched;
-      set({ state: { keyWord, isSearched } });
+      const state = get().state;
+      set({ state: { ...state, keyWord } });
     },
     search: (keyWord: string) => {
       set({ state: { keyWord, isSearched: true } });
