@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { getInitProductList } from '../../../api/product';
-import { productStore } from '../../../store/productStore';
+import { useProductActions, useProductList } from '../../../store/productStore';
 import { ProductListLayout } from '../../common/layouts/producListtLayout/style';
 import Product from './product/Product';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,8 @@ import { useNavigate } from 'react-router-dom';
 interface Props {}
 
 const ProductList = (props: Props) => {
-  const { productList, initProduct } = productStore();
+  const productList = useProductList();
+  const { initProduct } = useProductActions();
 
   const navigate = useNavigate();
 

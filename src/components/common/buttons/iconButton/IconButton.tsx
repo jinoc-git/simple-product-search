@@ -1,13 +1,17 @@
 import React from 'react';
 import * as Styled from './style';
 
-interface Props {
+export interface IconButtonProps extends Styled.IconBtnStyleProps {
   icon: React.ReactNode;
-  iconPosition?: 'left' | 'right';
+  iconBtnType: 'button' | 'submit' | 'reset';
 }
 
-const IconButton = ({ icon, iconPosition }: Props) => {
-  return <Styled.IconBtn $iconPosition={iconPosition}>{icon}</Styled.IconBtn>;
+const IconButton = ({ icon, $iconPosition, iconBtnType }: IconButtonProps) => {
+  return (
+    <Styled.IconBtn $iconPosition={$iconPosition} type={iconBtnType}>
+      {icon}
+    </Styled.IconBtn>
+  );
 };
 
 export default IconButton;
