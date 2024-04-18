@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import * as Styled from './style';
 import IconInput from '../../common/inputs/iconInput/IconInput';
 import IconSearch from '../../../assets/IconSearch';
-import { getProductListByKeyWord } from '../../../api/product';
-import { useProductActions } from '../../../store/productStore';
+import { fetchProductListByKeyWord } from '../../../api/product';
+import { useProductStoreActions } from '../../../store/productStore';
 
 const SearchBar = () => {
   const [val, setVal] = useState('');
-  const { setProductList } = useProductActions();
+  const { setProducts } = useProductStoreActions();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);
@@ -17,8 +17,8 @@ const SearchBar = () => {
     e.preventDefault();
     if (val === '') return;
 
-    const res = await getProductListByKeyWord(val);
-    setProductList(res.products);
+    const res = await fetchProductListByKeyWord(val);
+    setProducts(res.products);
   };
 
   return (

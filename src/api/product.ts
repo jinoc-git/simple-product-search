@@ -1,33 +1,29 @@
-import { ProductListResType, ProductType } from '../types/aboutProduct';
+import { FetchProductsReturn, ProductType } from '../types/aboutProduct';
 
-export const getInitProductList = async () => {
+export const fetchInitProductList = async () => {
   const res = await fetch('https://dummyjson.com/products?limit=10');
-  const productList: ProductListResType = await res.json();
+  const productList: FetchProductsReturn = await res.json();
 
   return productList;
 };
 
-export const getProductById = async (id: string) => {
+export const fetchProductById = async (id: string) => {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   const productList: ProductType = await res.json();
 
   return productList;
 };
 
-export const getMoreInitProductList = async (skip: number) => {
-  const res = await fetch(
-    `https://dummyjson.com/products?limit=10&skip=${skip}`,
-  );
-  const productList: ProductListResType = await res.json();
+export const fetchMoreInitProductList = async (skip: number) => {
+  const res = await fetch(`https://dummyjson.com/products?limit=10&skip=${skip}`);
+  const productList: FetchProductsReturn = await res.json();
 
   return productList;
 };
 
-export const getProductListByKeyWord = async (keyWord: string) => {
-  const res = await fetch(
-    `https://dummyjson.com/products/search?q=${keyWord}&limit=10`,
-  );
-  const productList: ProductListResType = await res.json();
+export const fetchProductListByKeyWord = async (keyWord: string) => {
+  const res = await fetch(`https://dummyjson.com/products/search?q=${keyWord}&limit=10`);
+  const productList: FetchProductsReturn = await res.json();
 
   return productList;
 };

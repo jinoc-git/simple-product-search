@@ -1,30 +1,38 @@
 import { create } from 'zustand';
-import { ProductType } from '../types/aboutProduct';
+import { FetchProductsReturn, ProductType } from '../types/aboutProduct';
+
+export interface ProductStoreState extends FetchProductsReturn {}
 
 interface ProductStore {
-  productList: ProductType[];
+  state: ProductStoreState;
   actions: {
-    initProduct: (list: ProductType[]) => void;
-    addProductList: (list: ProductType[]) => void;
-    setProductList: (list: ProductType[]) => void;
+    initProduct: (data: ProductStoreState) => void;
+    addProducts: (list: ProductType[]) => void;
+    setProducts: (list: ProductType[]) => void;
   };
 }
 
 export const productStore = create<ProductStore>((set, get) => ({
-  productList: [],
+  state: {
+    limit: 10,
+    products: [],
+    skip: 0,
+    total: 0,
+  },
   actions: {
-    initProduct: (list: ProductType[]) => {
-      set({ productList: list });
+    initProduct: (data: ProductStoreState) => {
+      set({ state: data });
     },
-    addProductList: (list: ProductType[]) => {
-      const origin = get().productList;
-      set({ productList: origin.concat(list) });
+    addProducts: (list: ProductType[]) => {
+      const origin = get().state;
+      set({ state: { ...origin, products: [...origin.products, ...list] } });
     },
-    setProductList: (list: ProductType[]) => {
-      set({ productList: list });
+    setProducts: (products: ProductType[]) => {
+      const origin = get().state;
+      set({ state: { ...origin, products } });
     },
   },
 }));
 
-export const useProductList = () => productStore((store) => store.productList);
-export const useProductActions = () => productStore((store) => store.actions);
+export const useProductStoreState = () => productStore((store) => store.state);
+export const useProductStoreActions = () => productStore((store) => store.actions);
