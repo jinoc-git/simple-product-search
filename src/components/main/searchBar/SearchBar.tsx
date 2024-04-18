@@ -32,6 +32,7 @@ const SearchBar = () => {
           $w="460px"
           $h="40px"
           name="search-input"
+          placeholder="상품을 검색하세요"
           onChange={onChangeInput}
         />
       </Styled.SearchBarForm>
