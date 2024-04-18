@@ -6,7 +6,7 @@ export interface ProductStoreState extends FetchProductsReturn {}
 interface ProductStore {
   state: ProductStoreState;
   actions: {
-    initProduct: (data: ProductStoreState) => void;
+    initProducts: (data: ProductStoreState) => void;
     addProducts: (list: ProductType[]) => void;
     setProducts: (list: ProductType[]) => void;
   };
@@ -20,7 +20,7 @@ export const productStore = create<ProductStore>((set, get) => ({
     total: 0,
   },
   actions: {
-    initProduct: (data: ProductStoreState) => {
+    initProducts: (data: ProductStoreState) => {
       set({ state: data });
     },
     addProducts: (list: ProductType[]) => {

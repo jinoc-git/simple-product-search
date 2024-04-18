@@ -9,7 +9,7 @@ interface Props {}
 
 const ProductList = (props: Props) => {
   const { products } = useProductStoreState();
-  const { initProduct } = useProductStoreActions();
+  const { initProducts } = useProductStoreActions();
 
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const ProductList = (props: Props) => {
     const initProductList = async () => {
       const res = await fetchInitProductList();
 
-      initProduct(res);
+      initProducts(res);
     };
 
     initProductList();
