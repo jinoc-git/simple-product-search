@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Styled from './style';
 import IconInput from '../../common/inputs/iconInput/IconInput';
-import IconSearch from '../../../assets/IconSearch';
+import IconSearch from '../../../assets/icon/IconSearch';
 import { fetchProductListByKeyWord } from '../../../api/product';
 import { useProductStoreActions } from '../../../store/productStore';
 

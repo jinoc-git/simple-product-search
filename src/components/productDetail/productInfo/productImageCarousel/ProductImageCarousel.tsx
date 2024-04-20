@@ -2,8 +2,8 @@ import React from 'react';
 import * as Styled from './style';
 import useCarousel from '../../../../hooks/useCarousel';
 import IconButton from '../../../common/buttons/iconButton/IconButton';
-import IconChevronLeft from '../../../../assets/IconChevronLeft';
-import IconChevronRight from '../../../../assets/IconChevronRight';
+import IconChevronLeft from '../../../../assets/icon/IconChevronLeft';
+import IconChevronRight from '../../../../assets/icon/IconChevronRight';
 
 interface Props {
   images: string[];

@@ -4,12 +4,11 @@ import { fetchProductById } from '../../../api/product';
 import { useParams } from 'react-router-dom';
 import { ProductType } from '../../../types/aboutProduct';
 import ProductImageCarousel from './productImageCarousel/ProductImageCarousel';
+import Loading from '../../../assets/icon/Loading';
 
 const ProductInfo = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<ProductType>();
-
-  console.log(product);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -25,8 +24,13 @@ const ProductInfo = () => {
   return (
     <Styled.ProductInfoContainer>
       <h2>상품 상세 정보</h2>
-      {product && <ProductImageCarousel images={product.images} />}
-
+      {product ? (
+        <ProductImageCarousel images={product.images} />
+      ) : (
+        <Styled.ProductCarouselLoading>
+          <Loading />
+        </Styled.ProductCarouselLoading>
+      )}
       <Styled.ProductInfoTable>
         <tbody>
           <Styled.TableRow>

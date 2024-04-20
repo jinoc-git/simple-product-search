@@ -7,6 +7,14 @@ export const ProductInfoContainer = styled.section`
   width: 100%;
 `;
 
+export const ProductCarouselLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 350px;
+`;
+
 export const ProductInfoTable = styled.table`
   border-collapse: separate;
   border-spacing: 5px;

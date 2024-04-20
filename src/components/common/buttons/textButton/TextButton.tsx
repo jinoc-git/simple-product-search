@@ -3,6 +3,7 @@ import * as Styled from './style';
 
 export interface TextButtonProps extends Styled.TextBtnStyleProps {
   children: string;
+  onClick?: () => void;
 }
 
 const TextButton = (props: TextButtonProps) => {
