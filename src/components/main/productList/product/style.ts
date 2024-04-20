@@ -10,6 +10,10 @@ export const ProductContainer = styled.div`
   border: 1px solid #c1c1c1;
   border-radius: 20px;
   cursor: pointer;
+
+  &:hover > div {
+    color: blue;
+  }
 `;
 
 export const ProductThumbnail = styled.img`
