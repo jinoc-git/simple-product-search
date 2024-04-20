@@ -8,8 +8,6 @@ export const ProductInfoContainer = styled.section`
 `;
 
 export const ProductInfoTable = styled.table`
-  text-align: left;
-  border: 1px solid;
   border-collapse: separate;
   border-spacing: 5px;
 `;
@@ -20,9 +18,12 @@ export const TableRow = styled.tr`
 
 export const TableHeader = styled.th`
   width: 100px;
+  vertical-align: middle;
   background-color: #eee;
 `;
 
 export const TableData = styled.td`
+  text-align: left;
+  vertical-align: middle;
   background-color: azure;
 `;
