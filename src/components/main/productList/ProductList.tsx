@@ -19,8 +19,6 @@ const ProductList = (props: Props) => {
     navigate(`/productDetail/${id}`);
   };
 
-  console.log(products);
-
   useEffect(() => {
     const initProductList = async () => {
       const res = await fetchInitProductList();
@@ -28,7 +26,7 @@ const ProductList = (props: Props) => {
       initProducts(res);
     };
 
-    if (!isSearched) initProductList();
+    if (!isSearched && products.length === 0) initProductList();
   }, [isSearched]);
 
   return (
