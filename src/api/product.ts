@@ -8,7 +8,7 @@ export const fetchInitProductList = async () => {
 };
 
 export const fetchProductById = async (id: string) => {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  const res = await fetch(`https://dummyjson.com/products/${id}`, { cache: 'force-cache' });
   const productList: ProductType = await res.json();
 
   return productList;

@@ -49,7 +49,7 @@ export const TextBtn = styled.button<TextBtnStyleProps>`
           width: 180px;
           height: 50px;
           border-radius: 12px;
-          font-size: 20px;
+          font-size: 18px;
         `;
       default:
         return css`

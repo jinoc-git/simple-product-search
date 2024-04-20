@@ -3,12 +3,13 @@ import * as Styled from './style';
 
 export interface TextButtonProps extends Styled.TextBtnStyleProps {
   children: string;
+  onClick?: () => void;
 }
 
 const TextButton = (props: TextButtonProps) => {
-  const { children } = props;
+  const { children, ...rest } = props;
 
-  return <Styled.TextBtn>{children}</Styled.TextBtn>;
+  return <Styled.TextBtn {...rest}>{children}</Styled.TextBtn>;
 };
 
 export default TextButton;
