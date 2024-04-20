@@ -1,14 +1,16 @@
 import { create } from 'zustand';
-import { FetchProductsReturn, ProductType } from '../types/aboutProduct';
+import { FetchProductsReturn } from '../types/aboutProduct';
 
-export interface ProductStoreState extends FetchProductsReturn {}
+export interface ProductStoreState extends FetchProductsReturn {
+  hasMore: boolean;
+}
 
 interface ProductStore {
   state: ProductStoreState;
   actions: {
-    initProducts: (data: ProductStoreState) => void;
-    addProducts: (list: ProductType[]) => void;
-    setProducts: (list: ProductType[]) => void;
+    initProducts: (data: FetchProductsReturn) => void;
+    setProducts: (data: FetchProductsReturn) => void;
+    getMoreProducts: (data: FetchProductsReturn) => void;
   };
 }
 
@@ -18,18 +20,26 @@ export const productStore = create<ProductStore>((set, get) => ({
     products: [],
     skip: 0,
     total: 0,
+    hasMore: true,
   },
   actions: {
-    initProducts: (data: ProductStoreState) => {
-      set({ state: data });
+    initProducts: (data: FetchProductsReturn) => {
+      set({ state: { ...data, hasMore: true } });
     },
-    addProducts: (list: ProductType[]) => {
-      const origin = get().state;
-      set({ state: { ...origin, products: [...origin.products, ...list] } });
+    setProducts: (data: FetchProductsReturn) => {
+      const { total, products: newProducts } = data;
+      const { products } = get().state;
+
+      const hasMore = products.length + newProducts.length < total;
+
+      set({ state: { ...data, hasMore } });
     },
-    setProducts: (products: ProductType[]) => {
-      const origin = get().state;
-      set({ state: { ...origin, products } });
+    getMoreProducts: (data: FetchProductsReturn) => {
+      const { products: newProducts } = data;
+      const { total, products } = get().state;
+
+      const hasMore = products.length + newProducts.length < total;
+      set({ state: { ...data, products: [...products, ...newProducts], hasMore } });
     },
   },
 }));
