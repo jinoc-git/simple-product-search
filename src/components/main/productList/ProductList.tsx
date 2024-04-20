@@ -4,12 +4,14 @@ import { useProductStoreActions, useProductStoreState } from '../../../store/pro
 import { ProductListLayout } from '../../common/layouts/producListtLayout/style';
 import Product from './product/Product';
 import { useNavigate } from 'react-router-dom';
+import { useSearchStoreState } from '../../../store/searchStore';
 
 interface Props {}
 
 const ProductList = (props: Props) => {
   const { products } = useProductStoreState();
   const { initProducts } = useProductStoreActions();
+  const { isSearched } = useSearchStoreState();
 
   const navigate = useNavigate();
 
@@ -26,8 +28,8 @@ const ProductList = (props: Props) => {
       initProducts(res);
     };
 
-    initProductList();
-  }, []);
+    if (!isSearched) initProductList();
+  }, [isSearched]);
 
   return (
     <ProductListLayout>

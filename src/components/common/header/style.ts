@@ -7,3 +7,7 @@ export const Header = styled.header`
   width: 100%;
   height: 60px;
 `;
+
+export const Logo = styled.h1`
+  cursor: pointer;
+`;

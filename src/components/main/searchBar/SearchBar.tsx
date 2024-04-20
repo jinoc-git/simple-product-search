@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Styled from './style';
 import IconInput from '../../common/inputs/iconInput/IconInput';
 import IconSearch from '../../../assets/icon/IconSearch';
 import { fetchProductListByKeyWord } from '../../../api/product';
 import { useProductStoreActions } from '../../../store/productStore';
+import { useSearchStoreActions, useSearchStoreState } from '../../../store/searchStore';
 
 const SearchBar = () => {
-  const [val, setVal] = useState('');
+  const { keyWord, isSearched } = useSearchStoreState();
+  const { search } = useSearchStoreActions();
   const { setProducts } = useProductStoreActions();
+
+  const [val, setVal] = useState(keyWord);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);
@@ -17,9 +21,15 @@ const SearchBar = () => {
     e.preventDefault();
     if (val === '') return;
 
+    search(val);
     const res = await fetchProductListByKeyWord(val);
-    setProducts(res.products);
+    setProducts(res);
   };
+
+  useEffect(() => {
+    if (isSearched) setVal(keyWord);
+    else setVal('');
+  }, [isSearched, keyWord]);
 
   return (
     <Styled.SearchBarContainer>
@@ -28,10 +38,11 @@ const SearchBar = () => {
         <IconInput
           icon={<IconSearch />}
           $iconPosition="right"
-          iconBtnType={'submit'}
+          iconBtnType="submit"
           $w="460px"
           $h="40px"
           name="search-input"
+          value={val}
           placeholder="상품을 검색하세요"
           onChange={onChangeInput}
         />

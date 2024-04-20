@@ -8,6 +8,7 @@ interface SearchStore {
   actions: {
     setKeyWord: (keyWord: string) => void;
     search: (keyWord: string) => void;
+    resetSearch: () => void;
   };
 }
 
@@ -23,6 +24,9 @@ export const searchStore = create<SearchStore>((set, get) => ({
     },
     search: (keyWord: string) => {
       set({ state: { keyWord, isSearched: true } });
+    },
+    resetSearch: () => {
+      set({ state: { keyWord: '', isSearched: false } });
     },
   },
 }));

@@ -1,7 +1,7 @@
 import { FetchProductsReturn, ProductType } from '../types/aboutProduct';
 
 export const fetchInitProductList = async () => {
-  const res = await fetch('https://dummyjson.com/products?limit=10');
+  const res = await fetch('https://dummyjson.com/products?limit=10', { cache: 'force-cache' });
   const productList: FetchProductsReturn = await res.json();
 
   return productList;
