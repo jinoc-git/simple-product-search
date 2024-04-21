@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Simple Product Search 프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+dummyJSON api를 사용하여 상품을 검색할 수 있는 사이트 <br />
+<br />
+api 링크: https://dummyjson.com/docs/products
 
-## Available Scripts
+## 사용 기술
 
-In the project directory, you can run:
+- TypeScript
+- React
+- React-router-dom
+- Zustand
+- Styled-components
 
-### `npm start`
+## 페이지 설명
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- / : 상품 목록과 검색 결과가 표시되며 상품 클릭 시 상세 페이지로 이동한다.
+- /productDetail/id : 상품의 상세 정보가 표시된다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 기능
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 검색 기능 : 메인 페이지에서 상품을 검색을 통해 검색 결과를 볼 수 있다.
+- 더보기 기능 : 목록 하단의 더보기 버튼을 클릭 시 10개의 상품을 추가로 보여주고, 더 표시할 상품이 있을 때에만 버튼이 표시된다
+- 목록으로 돌아가기 기능 : 상품 상세 페이지에서 목록으로 돌아가기 버튼을 클릭 시 검색어, 검색 결과, 스크롤 위치가 유지된다.
+- 검색 초기화 기능 : 로고 클릭 시 메인 페이지로 이동하며 검색 결과가 초기화 된다.
+- 이미지 슬라이드 기능 : 상품 상세 페이지에서 상품의 이미지들을 슬라이드를 통해 보여준다.
