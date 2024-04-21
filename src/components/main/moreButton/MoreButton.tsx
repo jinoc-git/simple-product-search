@@ -6,18 +6,17 @@ import { useSearchStoreState } from '../../../store/searchStore';
 import { fetchMoreInitProductList, fetchProductListByKeyWord } from '../../../api/product';
 
 const MoreButton = () => {
-  const state = useProductStoreState();
+  const { skip, hasMore } = useProductStoreState();
   const { setMoreProducts } = useProductStoreActions();
   const { keyWord, isSearched } = useSearchStoreState();
-  console.log(state);
 
   const onClickMoreBtn = async () => {
     if (isSearched) {
-      const res = await fetchProductListByKeyWord(keyWord, state.skip);
+      const res = await fetchProductListByKeyWord(keyWord, skip);
 
       setMoreProducts(res);
     } else {
-      const res = await fetchMoreInitProductList(state.skip);
+      const res = await fetchMoreInitProductList(skip);
 
       setMoreProducts(res);
     }
@@ -25,7 +24,11 @@ const MoreButton = () => {
 
   return (
     <Styled.MoreBtnContainer>
-      {state.hasMore && <TextButton onClick={onClickMoreBtn}>더보기</TextButton>}
+      {hasMore && (
+        <TextButton type="button" onClick={onClickMoreBtn}>
+          더보기
+        </TextButton>
+      )}
     </Styled.MoreBtnContainer>
   );
 };

@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { fetchInitProductList } from '../../../api/product';
 import { useProductStoreActions, useProductStoreState } from '../../../store/productStore';
 import { ProductListLayout } from '../../common/layouts/producListtLayout/style';
 import Product from './product/Product';
 import { useNavigate } from 'react-router-dom';
 import { useSearchStoreState } from '../../../store/searchStore';
+import NoSearchResult from './noSearchResult/NoSearchResult';
 
-interface Props {}
-
-const ProductList = (props: Props) => {
+const ProductList = () => {
   const { products } = useProductStoreState();
   const { initProducts } = useProductStoreActions();
   const { isSearched } = useSearchStoreState();
 
   const navigate = useNavigate();
 
-  const onClickProduct = (id: number) => {
+  const onClickProduct = useCallback((id: number) => {
     navigate(`/productDetail/${id}`);
-  };
+  }, []);
 
   useEffect(() => {
     const initProductList = async () => {
@@ -27,7 +26,7 @@ const ProductList = (props: Props) => {
     };
 
     if (!isSearched && products.length === 0) initProductList();
-  }, [isSearched]);
+  }, [isSearched, products]);
 
   return (
     <ProductListLayout>
@@ -45,6 +44,7 @@ const ProductList = (props: Props) => {
           />
         );
       })}
+      {products.length === 0 && <NoSearchResult />}
     </ProductListLayout>
   );
 };

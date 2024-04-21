@@ -29,6 +29,7 @@ const ProductImageCarousel = ({ images }: Props) => {
         <IconButton
           icon={<IconChevronLeft />}
           iconBtnType="button"
+          btnName="왼쪽 화살표 버튼"
           className="left-btn"
           onClick={onClickLeft}
         />
@@ -37,6 +38,7 @@ const ProductImageCarousel = ({ images }: Props) => {
         <IconButton
           icon={<IconChevronRight />}
           iconBtnType="button"
+          btnName="오른쪽 화살표 버튼"
           className="right-btn"
           onClick={onClickRight}
         />

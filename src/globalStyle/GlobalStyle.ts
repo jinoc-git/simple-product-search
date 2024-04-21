@@ -38,10 +38,10 @@ const GlobalStyles = createGlobalStyle`
   }
   h3 { 
     font-family: 'TheJamsil5Bold', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
   }
   h4 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
   }
   p {
