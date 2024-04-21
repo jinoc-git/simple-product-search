@@ -6,6 +6,7 @@ export const ProductContainer = styled.div`
   align-items: center;
   gap: 10px;
   width: 300px;
+  height: 245px;
   padding: 10px;
   border: 1px solid #c1c1c1;
   border-radius: 20px;
@@ -42,7 +43,7 @@ export const ProductBrand = styled.p`
   white-space: nowrap;
 `;
 
-export const ProductTitle = styled.h4`
+export const ProductTitle = styled.h3`
   width: 170px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -50,5 +51,5 @@ export const ProductTitle = styled.h4`
 `;
 
 export const ProductPrice = styled.p`
-  /* width: 100%; */
+  color: #6a6a6a;
 `;

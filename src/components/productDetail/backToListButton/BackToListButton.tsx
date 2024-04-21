@@ -13,7 +13,7 @@ const BackToListButton = () => {
   return (
     <Styled.BackToListBtnContainer>
       <h2>목록으로 돌아가기 버튼</h2>
-      <TextButton size="lg" onClick={onClickBtn}>
+      <TextButton size="lg" type="button" onClick={onClickBtn}>
         목록으로 돌아가기
       </TextButton>
     </Styled.BackToListBtnContainer>

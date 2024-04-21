@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import * as Styled from './style';
 import IconInput from '../../common/inputs/iconInput/IconInput';
 import IconSearch from '../../../assets/icon/IconSearch';
@@ -13,9 +13,9 @@ const SearchBar = () => {
 
   const [val, setVal] = useState(keyWord);
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);
-  };
+  }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,6 +39,7 @@ const SearchBar = () => {
           icon={<IconSearch />}
           $iconPosition="right"
           iconBtnType="submit"
+          btnName="검색 버튼"
           $w="460px"
           $h="40px"
           name="search-input"
