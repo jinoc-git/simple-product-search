@@ -1,6 +1,8 @@
 # Simple Product Search 프로젝트
 
-(https://dummyjson.com/docs/products) api를 사용하여 상품을 검색할 수 있는 사이트
+dummyJSON api를 사용하여 상품을 검색할 수 있는 사이트 <br />
+<br />
+api 링크: https://dummyjson.com/docs/products
 
 ## 사용 기술
 
